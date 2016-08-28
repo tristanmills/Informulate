@@ -19,17 +19,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var latitudeLabel: UILabel!
     @IBOutlet weak var longitudeLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var whereAmIButton: UIButton!
     
     // Button Click
     @IBAction func updateLocation(sender: AnyObject) {
 
-        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedAlways {
+        // TODO: Code Style - Line Length?
+        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedAlways || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse {
             locationManager.startUpdatingLocation()
-        } else if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse {
-            locationManager.startUpdatingLocation()
-        } else if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Restricted {
-            presentViewController(errorAlert, animated: true, completion: nil)
-        } else if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Denied {
+            latitudeLabel.text = "Loading..."
+            longitudeLabel.text = "Loading..."
+            addressLabel.text = "Loading..."
+        } else if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Restricted || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.Denied {
             presentViewController(errorAlert, animated: true, completion: nil)
         }
 

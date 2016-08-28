@@ -101,6 +101,7 @@
                         <outlet property="addressLabel" destination="yHr-Ss-Jgd" id="9ts-9e-tL8"/>
                         <outlet property="latitudeLabel" destination="jG3-8s-peb" id="nYP-vQ-eGp"/>
                         <outlet property="longitudeLabel" destination="JhL-0d-OSY" id="6kV-fY-ohg"/>
+                        <outlet property="whereAmIButton" destination="xmr-Mo-lBo" id="oi6-pI-6I8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
